@@ -24,7 +24,7 @@ typedef struct s_data
 {
 	char 	*sport;
 	char	*name;
-	int 	points;
+	int 	*points;
 }	t_data;
 
 typedef struct s_entry
@@ -37,6 +37,6 @@ FILE *ft_create_file(char *name);
 size_t ft_write_file(char *str, FILE *fd);
 int ft_get_list_folder(char *file);
 int ft_get_list_folder_path(char *file, char *path);
-t_entry *ft_create_list_element(char *sport, char *name, int points);
+t_entry *ft_create_list_element(char *sport, char *name, int *points);
 
 #endif
