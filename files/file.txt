@@ -1,0 +1,5 @@
+total 32
+-rw-r--r--  1 proche-c  2021_barcelona  2945 May 18 11:12 files.c
+-rw-r--r--  1 proche-c  2021_barcelona  2892 May 18 11:12 files.o
+-rw-r--r--  1 proche-c  2021_barcelona  3233 May 18 11:08 lists.c
+-rw-r--r--  1 proche-c  2021_barcelona  1952 May 18 11:08 lists.o

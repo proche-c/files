@@ -107,7 +107,7 @@ void ft_add_element(t_entry *list, char *sport, char *name, int *points)
 	new_element->next = NULL;
 }
 
-int main()
+/*int main()
 {
 	char *sport = "Futbol";
 	char *name = "Pepito";
@@ -127,6 +127,6 @@ int main()
 		list1 = list1->next;
 	}
 	return(0);
-}
+}*/
 
 

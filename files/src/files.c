@@ -62,20 +62,66 @@ int ft_get_list_folder_path(char *file, char *path)
 	return(fd2);
 }
 
+char **get_data_from_file(char *path, char **result)
+{
+	int fd;
+	char *line;
+	int i;
+
+	printf("hola\n");
+	printf("%s\n", path);
+	fd = open(path, O_RDONLY);
+	line = get_next_line(fd);
+	if (line)
+	{
+		i = 0;
+		result[i] = line;
+		while(line)
+		{
+			free(line);
+			line = get_next_line(fd);
+			if (line)
+			{
+				i++;
+				result[i] = line;
+			}
+		}
+	}
+	return (result);
+}
+
 int main()
 {
-	FILE *fd;
-	int fd2;
-	char *str = "file.txt";
-	char	*path = "/Users/proche-c/Documents/Cursus/files/src";
+	//FILE *fd;
+	int fd;
+	//char *str = "file.txt";
+	//char	*path = "/Users/proche-c/Documents/Cursus/files/src";
+	char *path2 = "/Users/proche-c/Documents/Cursus/files/archivos/file1";
+	//char **result;
+	char *buffer;
+	ssize_t	read_bytes;
+	//int i;
+	printf("holaaa\n");
+	buffer = malloc(sizeof(char) * 10 * 100);
+	fd = open(path2, O_RDONLY);
+	read_bytes = read(fd, buffer, 10000000);
+	printf("%s\n", buffer);
+	//printf("%zd\n", read_bytes);
 	//char *str2 = "Hola estoy probando";
 	//char *str3 = "Y ahora pruebo otra vez";
 	//int i;
-	fd = ft_create_file(str);
-	//fd2 = ft_get_list_folder(str);
-	fd2 = ft_get_list_folder_path(str, path);
 	//fd = ft_create_file(str);
-	/*i = 0;
+	//fd2 = ft_get_list_folder(str);
+	//fd2 = ft_get_list_folder_path(str, path);
+	/*result = get_data_from_file(path2, result);
+	i = 0;
+	while (result[i])
+	{
+		printf("%s\n", result[i]);
+		i ++;
+	}
+	//fd = ft_create_file(str);
+	i = 0;
 	while (i < 2)
 	{
 		ft_write_file(str2, fd);

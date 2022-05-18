@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   files.h                                            :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: proche-c <proche-c@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,34 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILES_H
-# define FILES_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include <signal.h>
-# include <stdio.h>
 # include <unistd.h>
-# include <string.h>
-# include <fcntl.h>
 # include <stdlib.h>
-# include "../get_next_line/get_next_line.h"
+# include <stdio.h>
 
-typedef struct s_data
-{
-	char 	*sport;
-	char	*name;
-	int 	*points;
-}	t_data;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
 
-typedef struct s_entry
-{
-	t_data	*match;
-	struct s_entry	*next;
-}	t_entry;
-
-FILE *ft_create_file(char *name);
-size_t ft_write_file(char *str, FILE *fd);
-int ft_get_list_folder(char *file);
-int ft_get_list_folder_path(char *file, char *path);
-t_entry *ft_create_list_element(char *sport, char *name, int *points);
+char	*get_next_line(int fd);
+char	*ft_get_remaining(int fd, char *remaining);
+char	*ft_update_remaining(char *remaining);
+char	*ft_get_the_line(char *remaining);
+char	*ft_strchr(const char *s, int c);
+size_t	ft_strlen(const char *str);
+char	*ft_join_str(char *s1, char *s2);
 
 #endif
